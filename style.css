@@ -1,0 +1,703 @@
+/* =========================================================
+   Patient Records Manager – Website Styles
+   Theme colour: #1B5E60 (medical teal-green)
+   ========================================================= */
+
+/* ---------- Reset & base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --accent:        #1B5E60;
+  --accent-light:  #26838A;
+  --accent-dark:   #134446;
+  --accent-pale:   #E8F5F5;
+  --header-bg:     #0F2F30;
+  --text:          #1A1A2E;
+  --text-muted:    #5A6A6B;
+  --border:        #D0E5E6;
+  --bg:            #F7FAFA;
+  --white:         #FFFFFF;
+  --success:       #2E7D32;
+  --warning-bg:    #FFF8E1;
+  --warning-border:#F9A825;
+  --radius:        10px;
+  --radius-lg:     16px;
+  --shadow:        0 4px 20px rgba(27, 94, 96, 0.12);
+  --shadow-lg:     0 8px 40px rgba(27, 94, 96, 0.18);
+  --transition:    0.25s ease;
+  --max-width:     1100px;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--accent-light);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover { color: var(--accent); }
+
+img { max-width: 100%; display: block; }
+
+/* ---------- Utility ---------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.section {
+  padding-block: 5rem;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  margin-bottom: 0.5rem;
+}
+
+.section-sub {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ---------- Skip link (accessibility) ---------- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--accent);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  z-index: 9999;
+  font-size: 0.875rem;
+  transition: top var(--transition);
+}
+.skip-link:focus { top: 1rem; }
+
+/* ---------- Header / Hero ---------- */
+header {
+  background: var(--header-bg);
+  color: var(--white);
+  padding-block: 3.5rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 80% -10%, rgba(38,131,138,0.25) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at -10% 110%, rgba(27,94,96,0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.header-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.logo-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--accent-light);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(38,131,138,0.4);
+}
+
+.app-name {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+
+.app-name span {
+  color: #5CE0E6;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+  margin-top: 0.2rem;
+  font-weight: 400;
+}
+
+.hero-desc {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 560px;
+  line-height: 1.65;
+}
+
+.version-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #A8EDEE;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: 100px;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.03em;
+}
+
+.version-badge::before {
+  content: '●';
+  font-size: 0.5rem;
+  color: #5CE0E6;
+}
+
+/* ---------- Download section ---------- */
+#download {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding-block: 4rem;
+}
+
+.download-card {
+  background: linear-gradient(135deg, var(--accent-pale) 0%, #D5EEEE 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.download-info {
+  flex: 1 1 280px;
+}
+
+.download-info h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  margin-bottom: 0.4rem;
+}
+
+.download-info p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.download-meta {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.download-meta span {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 0.2rem 0.65rem;
+}
+
+.download-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+/* Primary download button */
+/* NOTE FOR DEVELOPER:
+   Replace the href="#" below (in index.html, on the element with id="download-btn")
+   with the actual Google Drive direct download link.
+
+   To get a direct download link from Google Drive:
+     1. Upload the .exe file to Google Drive and set sharing to "Anyone with the link".
+     2. Copy the file ID from the share URL:
+        https://drive.google.com/file/d/FILE_ID/view
+     3. Use this format as the download URL:
+        https://drive.google.com/uc?export=download&id=FILE_ID
+
+   Also update version.json → "downloadUrl" with the same link.
+*/
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--accent);
+  color: var(--white);
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 0.85rem 1.8rem;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(27,94,96,0.35);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn-download:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(27,94,96,0.4);
+  color: var(--white);
+}
+
+.btn-download:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(27,94,96,0.3);
+}
+
+.btn-download .btn-icon {
+  font-size: 1.2rem;
+}
+
+.download-note {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Google Drive callout ---------- */
+.gdrive-callout {
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  border-left: 4px solid var(--warning-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.gdrive-callout .callout-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.gdrive-callout h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #5D4037;
+  margin-bottom: 0.3rem;
+}
+
+.gdrive-callout p {
+  font-size: 0.9rem;
+  color: #6D4C41;
+  line-height: 1.55;
+}
+
+/* ---------- Features ---------- */
+#features {
+  background: var(--bg);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.feature-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.feature-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
+.feature-icon {
+  font-size: 2rem;
+  margin-bottom: 0.85rem;
+  display: block;
+}
+
+.feature-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  margin-bottom: 0.4rem;
+}
+
+.feature-card p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* ---------- License ---------- */
+#license {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+.license-code {
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.9em;
+  background: var(--accent-pale);
+  color: var(--accent-dark);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.45em;
+}
+
+.license-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.license-intro p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 680px;
+}
+
+.license-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.license-contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--accent-pale);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.5rem;
+  text-decoration: none;
+  color: var(--text);
+  flex: 1 1 240px;
+  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+}
+
+.license-contact-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+  border-color: var(--accent-light);
+  color: var(--text);
+}
+
+.license-contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--accent);
+  color: var(--white);
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
+.license-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.license-contact-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.license-contact-value {
+  font-size: 0.975rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ---------- Changelog ---------- */
+#changelog {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.changelog-entry {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.changelog-header {
+  background: var(--accent-pale);
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.changelog-version {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--accent-dark);
+}
+
+.changelog-tag {
+  background: var(--accent);
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 100px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.changelog-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.changelog-body {
+  padding: 1.25rem 1.5rem;
+}
+
+.changelog-body p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.changelog-list {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+  list-style: none;
+}
+
+.changelog-list li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+
+.changelog-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.75rem;
+  top: 0.1rem;
+}
+
+/* ---------- How updates work ---------- */
+#updates {
+  background: var(--bg);
+}
+
+.update-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 640px;
+}
+
+.update-step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--white);
+  font-weight: 800;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.step-content h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-dark);
+  margin-bottom: 0.2rem;
+}
+
+.step-content p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.json-preview {
+  margin-top: 1.5rem;
+  background: var(--header-bg);
+  color: #A8EDEE;
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  overflow-x: auto;
+  max-width: 480px;
+}
+
+.json-key   { color: #FFD54F; }
+.json-str   { color: #80CBC4; }
+.json-punct { color: rgba(255,255,255,0.4); }
+
+/* ---------- Footer ---------- */
+footer {
+  background: var(--header-bg);
+  color: rgba(255,255,255,0.75);
+  padding-block: 2.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.footer-brand strong {
+  color: var(--white);
+  font-size: 1rem;
+}
+
+.footer-brand span {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.footer-links a {
+  color: #5CE0E6;
+  font-size: 0.875rem;
+}
+
+.footer-links a:hover { color: #A8EDEE; }
+
+.footer-copy {
+  width: 100%;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .section { padding-block: 3.5rem; }
+
+  .download-card {
+    flex-direction: column;
+    padding: 1.75rem;
+  }
+
+  .download-actions {
+    width: 100%;
+  }
+
+  .btn-download {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .changelog-date {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .footer-links {
+    align-items: flex-start;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
