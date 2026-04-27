@@ -43,12 +43,6 @@
     }
   }
 
-  function showVersionError() {
-    versionBadges.forEach(function (el) {
-      el.textContent = 'v?.?.?';
-    });
-  }
-
   fetch(VERSION_URL)
     .then(function (res) {
       if (!res.ok) throw new Error('Network response was not ok');
@@ -57,7 +51,7 @@
     .then(setVersion)
     .catch(function (err) {
       console.warn('Could not load version.json:', err);
-      showVersionError();
+      // HTML already contains fallback version text — leave it unchanged
     });
 
   // Smooth scroll for in-page anchor links
