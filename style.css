@@ -572,6 +572,12 @@ header::before {
   text-transform: uppercase;
 }
 
+.changelog-tag--prev {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
 .changelog-date {
   font-size: 0.85rem;
   color: var(--text-muted);

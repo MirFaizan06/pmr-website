@@ -265,17 +265,38 @@
       <div class="container">
         <h2 class="section-title" id="changelog-heading">Release Notes</h2>
         <p class="section-sub">What changed in each version.</p>
+        <!-- v1.1.0 — latest -->
+        <div class="changelog-entry" style="margin-bottom: 1.25rem;">
+          <div class="changelog-header">
+            <span class="changelog-version">v1.1.0</span>
+            <span class="changelog-tag">Latest</span>
+            <span class="changelog-date">April 2026</span>
+          </div>
+          <div class="changelog-body">
+            <p>Quality-of-life improvements across the entire workflow — faster prescriptions, crash-safe forms, and full multi-clinic support.</p>
+            <ul class="changelog-list">
+              <li>Clinic ID prefix — each clinic sets a unique prefix for patient IDs (e.g. APOL-, CMC-)</li>
+              <li>Print timestamp on every prescription — exact date and time of printing for official records</li>
+              <li>Print Rx floating button — no scrolling needed after saving a patient</li>
+              <li>Ctrl+S to save patient form from anywhere on the page</li>
+              <li>Form crash recovery — unsaved draft restored automatically if app closes unexpectedly</li>
+              <li>ID collision protection — duplicate IDs regenerated automatically on save</li>
+              <li>License activation screen — cleaner flow for new installations</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- v1.0.0 -->
         <div class="changelog-entry">
           <div class="changelog-header">
             <span class="changelog-version js-version">v1.0.0</span>
-            <span class="changelog-tag">Latest</span>
+            <span class="changelog-tag changelog-tag--prev">Previous</span>
             <span class="changelog-date" id="changelog-release-date">—</span>
           </div>
           <div class="changelog-body">
-            <p id="release-notes-text">Initial release with face unlock, prescription printing, CLI tool, and
-              auto-update support.</p>
+            <p id="release-notes-text">Initial release with face unlock, prescription printing, CLI tool, and auto-update support.</p>
             <ul class="changelog-list">
-              <li>Patient record management — search by name, phone, or GLCC ID</li>
+              <li>Patient record management — search by name, phone, or patient ID</li>
               <li>Face unlock using local facial recognition (no cloud required)</li>
               <li>Prescription printing — formatted A4 layout with clinic letterhead and logo</li>
               <li>Built-in CLI tool (pmr) included in installer for terminal access</li>
