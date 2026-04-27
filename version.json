@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
   "releaseDate": "2026-04-27",
-  "downloadUrl": "REPLACE_WITH_GOOGLE_DRIVE_DIRECT_LINK",
+  "downloadUrl": "https://drive.google.com/uc?export=download&id=1O8BvhRfobncfMUHp0e6-K4zsW53x1u9D",
   "releaseNotes": "Initial release with face unlock, prescription printing, CLI tool, and auto-update support."
 }

@@ -11,7 +11,7 @@
 
   // Elements that show the version number
   const versionBadges = document.querySelectorAll('.js-version');
-  const downloadBtn   = document.getElementById('download-btn');
+  const downloadBtn = document.getElementById('download-btn');
   const releaseDateEl = document.getElementById('release-date');
   const releaseNotesEl = document.getElementById('release-notes-text');
 
@@ -37,7 +37,7 @@
     if (
       downloadBtn &&
       data.downloadUrl &&
-      data.downloadUrl !== 'REPLACE_WITH_GOOGLE_DRIVE_DIRECT_LINK'
+      data.downloadUrl !== 'https://drive.google.com/uc?export=download&id=1O8BvhRfobncfMUHp0e6-K4zsW53x1u9D'
     ) {
       downloadBtn.href = data.downloadUrl;
     }
