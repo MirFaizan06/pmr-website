@@ -1,0 +1,2 @@
+# Serve index.html for any unmatched path (clean 404 handling)
+/*    /index.html   200
